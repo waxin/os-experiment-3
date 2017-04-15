@@ -1,0 +1,39 @@
+实验程序说明
+
+	程序1
+		说明：本程序利用管道在父子进程间通信，子进程想管道写入一串字符"hello pipe"，父进程从管道中读取病打印在屏幕上
+	
+		源文件名：pipe.c
+	
+		编译运行：gcc -o pipe pipe.c
+		      ./pipe
+
+	程序2
+		说明：本程序包括两个子程序，fifo_write创建一个fifo,并且想fifo中写入一串字符"hello fifo",fifo_read则从fifo中读取字符并打印在屏幕
+		上
+	
+		源文件名：fifo_write.c	fifo_read.c
+
+		编译运行：gcc -o fifo_write fifo_write.c
+			  gcc -o fifo_read  fifo_read.c
+			  ./fifo_write&
+			  ./fifo_read
+
+	程序3
+		说明：本程序包括两个子程序，msg_send创建消息队列并可以通过标准输入发送消息直到发送的消息是"end"为止，msg_receive创建消息队列
+		（与msg_send创建的相同）ms_receive从消息队列中读取信息并打印到屏幕上，直到接受到"end"为止
+		
+		源文件名：msg_send.c	msg_receive.c
+		
+		编译运行：gcc -o msg_send msg_send.c
+			  gcc -o msg_receive msg_receive.c
+			  ./msg_send
+			 （按提示输入一些信息，例如
+				hello linux
+				I can write something here
+				end
+			  )
+			  
+			  ./msg_receive
+			  (屏幕将显示上述写入的消息）
+
